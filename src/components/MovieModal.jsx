@@ -51,25 +51,25 @@ const MovieModal = ({ movie, loading, onClose }) => {
           </div>
         )}
 
-        <div className="p-6 flex gap-6">
+        <div className="p-6 flex flex-col sm:flex-row gap-6">
           {/* Poster */}
           <img
             src={getPosterUrl(poster_path)}
             alt={title}
-            className="w-32 rounded-xl flex-shrink-0 -mt-16 relative shadow-xl border border-white/10"
+            className="w-32 mx-auto sm:mx-0 rounded-xl flex-shrink-0 -mt-16 relative shadow-xl border border-white/10"
           />
 
           {/* Info */}
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 text-center sm:text-left">
             <h2 className="text-white text-2xl font-bold leading-tight">{title}</h2>
-            <div className="flex flex-wrap gap-2 mt-2 text-sm text-gray-400">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-2 text-sm text-gray-400">
               <span>{year}</span>
               {runtime > 0 && <span>· {hours}h {mins}m</span>}
               <span className="text-yellow-400 font-bold">⭐ {vote_average?.toFixed(1)}</span>
             </div>
 
             {/* Genres */}
-            <div className="flex flex-wrap gap-2 mt-3">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2 mt-3">
               {genres?.map((g) => (
                 <span key={g.id} className="bg-yellow-400/10 text-yellow-400 text-xs px-3 py-1 rounded-full border border-yellow-400/20">
                   {g.name}
@@ -102,7 +102,7 @@ const MovieModal = ({ movie, loading, onClose }) => {
           {cast?.length > 0 && (
             <div>
               <h3 className="text-white font-semibold mb-3">Cast</h3>
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                 {cast.map((member) => (
                   <div key={member.id} className="text-center">
                     <img
